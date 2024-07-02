@@ -1,0 +1,35 @@
+nav{
+    border-bottom: 1px solid rgb(218, 218, 218);
+    background: url("../assets/background.png");
+    background-size: 100px 150px;
+    padding: 35px 150px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    .background-filter{
+        background: rgba(255, 255,255, .95);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        left: 0;
+        top: 0;
+    }
+    h1{
+        font-size: 40px;
+        font-weight: lighter;
+        z-index: 2;
+    }
+    img{
+        height: 50px;
+        position: relative;
+        top: 11px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        align-self: center;
+        font-size: 16px;
+        z-index: 2;
+    }
+}

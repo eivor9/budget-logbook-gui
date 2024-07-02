@@ -1,0 +1,78 @@
+.Home{
+    padding: 100px 0 100px;
+    display: flex;
+    margin: auto;
+    width: fit-content;
+    gap: 100px;
+    *{
+        font-weight: lighter;
+    }
+    img{
+        height: 750px;
+        border-radius: 30px;
+    }
+    .details{
+        display: flex;
+        flex-direction: column;
+        margin-top: 100px;
+        width: 510px;
+        gap: 20px;
+        h2{
+            font-size: 20px;
+        }
+        p{
+            font-size: 14px;
+            line-height: 25px;
+        }
+        a{
+            border: 1px solid black;
+            width: fit-content;
+            padding: 15px 20px;
+            border-radius: 30px;
+            color: black;
+            text-decoration: none;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+            .background{
+                border-radius: 30px;
+                background: black;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                left: -180px;
+                top: 0;
+                z-index: -1;
+            }
+            &:hover{
+                color: white;
+                .background{
+                    animation: come-in 0.15s ease-out;
+                    left: 0;
+                }
+            }
+        }
+        .icons{
+            display: flex;
+            margin: 200px auto 0;
+            gap: 50px;
+            i{
+                font-size: 18px;
+                position: relative;
+                top: 3px;
+            }
+            p{
+                font-size: 14px;
+            }
+            i, p{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@keyframes come-in {
+    from {left: -180px;}
+    to {left: 0px;}
+}
+
