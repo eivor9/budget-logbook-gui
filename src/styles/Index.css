@@ -23,3 +23,13 @@ table{
         padding: 10px
     }
 }
+
+@media (max-width: 900px) {
+    table{
+        width: 90%;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 15px;
+        box-shadow: 0 0 10px black;
+    }
+}
