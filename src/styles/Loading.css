@@ -1,9 +1,8 @@
 
 .loading{
-    margin-top: 150px;
-    transform: scale(4);
     h2{
-        font-size: 4px;
+        margin-top: 240px;
+        font-size: 14px;
         color: rgba(0,0,0,0.4);
         font-weight: lighter;
         text-align: center;
@@ -11,9 +10,9 @@
 }
 .lds-ripple,
 .lds-ripple div {
-    transform: scale(1);
+  margin: 50px auto;
+    transform: scale(2);
     box-sizing: border-box;
-    margin: auto;
 }
 .lds-ripple {
   display: block;

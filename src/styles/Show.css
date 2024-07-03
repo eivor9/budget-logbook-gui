@@ -135,8 +135,5 @@
 @media (max-width: 900px) {
     .transaction-details{
         box-shadow: unset;
-        padding: 0 0 30px 0; 
-        min-width: 450px;
-        margin-left: 30px;
     }
 }
