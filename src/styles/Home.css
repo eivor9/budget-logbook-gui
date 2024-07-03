@@ -38,8 +38,8 @@
                 background: black;
                 position: absolute;
                 height: 100%;
-                width: 100%;
-                left: -180px;
+                width: 105%;
+                left: -190px;
                 top: 0;
                 z-index: -1;
             }
@@ -47,7 +47,7 @@
                 color: white;
                 .background{
                     animation: come-in 0.15s ease-out;
-                    left: 0;
+                    left: 1px;
                 }
             }
         }
@@ -72,7 +72,7 @@
 
 @keyframes come-in {
     from {left: -180px;}
-    to {left: 0px;}
+    to {left: 1px;}
 }
 
 @media (max-width: 900px) {

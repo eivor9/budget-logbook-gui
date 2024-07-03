@@ -10,6 +10,9 @@ table{
     .price{
         text-align: right;
     }
+    .sale{
+        color: green;
+    }
     th{
         text-align: left;
         background: white;
@@ -20,9 +23,9 @@ table{
     tr{
         cursor: pointer;
         &:hover{
-            background: grey;
-            td{
-                color: black;
+            background: rgba(0, 0, 0, 0.5);
+            td, .price{
+                color: white
             }
         }
     }

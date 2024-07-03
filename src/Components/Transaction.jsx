@@ -28,8 +28,8 @@ export default function Transaction({ transaction }) {
           <td>
             {category}
           </td>
-          <td style={sale?{color: "green"}:{color: "black"}} className="price">
-            {`${sale ? "+" : ""}${dollars.format(amountInCents/100)}`}
+          <td className={sale ? "sale price": "price"}>
+            {dollars.format(amountInCents/100)}
           </td>
         </tr>
       );

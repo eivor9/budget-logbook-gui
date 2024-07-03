@@ -25,18 +25,23 @@ export default function Index(){
         .catch((error) => console.error(error));
     }, []);
 
-      function sortTransactions(method){
+    function sortTransactions(method){
         if (method === sortMethod){
             setTransactions(transactions.reverse());
             setAscDesc(!ascDesc);
         } else {
             setSortMethod(method);
             setTransactions(transactions.sort((x, y) => {
-            if (x[method] < y[method]) return -1;
-            else if (x[method] > y[method]) return 1;
-        }))
+                if (x[method] < y[method]) return -1;
+                else if (x[method] > y[method]) return 1;
+            }))
         }
-      }
+    }
+
+    const dollars = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
 
     return (<>
         {loading ? <Loading/> : 

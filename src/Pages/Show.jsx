@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Loading from "../Components/Loading ";
-import "../styles/Show.css"
+import "../styles/Show.css";
 import Select from "../Components/Select";
+import logo from "../assets/logo.svg";
 
 const API = import.meta.env.VITE_API;
 
 export default function Show() {
+    const [editAmount, setEditAmount] = useState(false);
     const [transaction, setTransaction] = useState({});
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -37,6 +39,11 @@ export default function Show() {
     .catch((error) => console.error(error));
     };
 
+    const dollars = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
+
     return (<>
         {loading ? <Loading/> : 
             <div className="transaction-details">
@@ -58,8 +65,17 @@ export default function Show() {
                         <Select defaultValue={transaction.category}/>
                     </div>
                     <div className="extra">
-                        <p>Amount (in cents)</p>
-                        <input value={transaction.amountInCents} type="number" min="0" />
+                        {editAmount ? <>
+                            <p>Amount (in cents)</p>
+                            <p>
+                                <i onClick={() => setEditAmount(false)} className="fa-regular fa-circle-xmark"></i>
+                                <input value={transaction.amountInCents} type="number" />
+                            </p>
+                        </>
+                        :<>
+                            <p>Amount</p>
+                            <p style={{cursor:"pointer"}} onClick={() => setEditAmount(true)}>{dollars.format(transaction.amountInCents/100)}</p>
+                        </>}
                     </div>
                     <div className="extra">
                         <p>Other Party</p>
@@ -67,7 +83,10 @@ export default function Show() {
                     </div>
                 </div>
                 <footer>
-                <p className="transaction-id">Transaction ID: {transaction.id}</p>
+                <p className="transaction-id">
+                    <div><img src={logo} alt="The Bear Logo"/></div>
+                    Transaction ID: {transaction.id}
+                </p>
                 <div className="buttons">
                     <Link to="/logbook">Home</Link>
                     <button>Save</button>
