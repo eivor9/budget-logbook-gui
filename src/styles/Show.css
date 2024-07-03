@@ -1,0 +1,103 @@
+.transaction-details{
+    margin: 50px auto;
+    width: 50%;
+    max-width: 650px;
+    min-width: 310px;
+    padding: 50px 50px 30px 50px; 
+    box-shadow: 0 0 500px rgb(219, 193, 163);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    i{
+        color: rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        &:hover{
+            color: rgba(0, 0, 0, 0.7);
+        }
+    }
+    header{
+        display: flex;
+        justify-content: space-between;
+        i{
+            font-size: 24px;
+        }
+    }
+    input, select{
+        font-size: 16px;
+        text-align: right;
+        &:focus{
+            outline: none;
+        }
+    }
+    .info{
+        h3{
+            margin-bottom: 5px;
+        }
+        p{
+            display: flex;
+            justify-content: space-between;
+        }
+        textarea{
+            width: 100%;
+            height: 100px;
+            box-shadow: none;
+            font-size: 14px;
+            padding: 5px;
+            &:focus {
+                outline: none;
+            }
+            &::selection{
+                background-color:rgba(255, 136, 0, 0.3);
+            }
+        }
+    }
+    .extras{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .extra{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            padding-bottom: 5px;
+        }
+    }
+    .transaction-id{
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 10px;
+    }
+    footer{
+        display: flex;
+        justify-content: space-between;
+        p{
+            align-self: flex-end;
+        }
+        .buttons{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            a{
+                font-size: 16px;
+                text-decoration: none;
+                color: black;
+                padding: 10px 15px;
+                border-radius: 30px;
+                &:hover{
+                    background: rgba(0, 0, 0, 0.05);
+                }
+            }
+            button{
+                font-size: 16px;
+                padding: 10px 15px;
+                border: none;
+                background: rgba(255, 166, 0, 0.5);
+                border-radius: 30px;
+                cursor: pointer;
+                &:hover{
+                    background: rgba(255, 166, 0, 0.75);
+                }
+            }
+        }
+    }
+}

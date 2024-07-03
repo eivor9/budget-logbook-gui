@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Loading from "../Components/Loading ";
+import "../styles/Show.css"
+import Select from "../Components/Select";
 
 const API = import.meta.env.VITE_API;
 
 export default function Show() {
-    const [date, setDate] = useState()
     const [transaction, setTransaction] = useState({});
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -22,10 +23,6 @@ export default function Show() {
         .then((responseJSON) => {
             setTransaction(responseJSON);
             setLoading(false);
-            return responseJSON
-        })
-        .then((responseJSON) => {
-            setDate(responseJSON.date);
         })
         .catch((error) => {
             console.error(error);
@@ -40,22 +37,6 @@ export default function Show() {
     .catch((error) => console.error(error));
     };
 
-    const alphaDate = (s) => {
-        if(!s) return "";
-        const months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
-        const month = s.substring(5,7);
-        const day = s.substring(8);
-        const year = s.substring(0,4);
-
-        const result = `${months[Number(month) - 1]} ${Number(day)}, ${year}`;
-        return result;
-    }
-
-    const dollars = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-      });
-
     return (<>
         {loading ? <Loading/> : 
             <div className="transaction-details">
@@ -63,29 +44,35 @@ export default function Show() {
                     <h2>Transaction Details</h2>
                     <i className="fa-regular fa-trash-can"></i>
                 </header>
-                <h3>Date</h3>
-                {alphaDate(date)}
-                <h3>Description</h3>
-                <p>{transaction.description}</p>
+                <div className="info">
+                    <h3>Date</h3>
+                    <input value={transaction.date} type="date"/>
+                </div>
+                <div className="info">
+                    <h3>Description</h3>
+                    <textarea value={transaction.description} >{transaction.description}</textarea>
+                </div>
                 <div className="extras">
                     <div className="extra">
                         <p>Category</p>
-                        <input type="select"/>
+                        <Select defaultValue={transaction.category}/>
                     </div>
                     <div className="extra">
-                        <p>Amount</p>
-                        <p style={transaction.otherParty === "Customers" ?{color: "green"}:{color: "black"}} className="price">
-                            {dollars.format(transaction.amountInCents/100)}
-                        </p>
+                        <p>Amount (in cents)</p>
+                        <input value={transaction.amountInCents} type="number" min="0" />
                     </div>
                     <div className="extra">
-                        <p>Recipient</p>
-                        <p>
-                            {transaction.otherParty === "Customers" ? "The Bear" : transaction.otherParty}
-                        </p>
+                        <p>Other Party</p>
+                        <input value={transaction.otherParty} type="text" />
                     </div>
                 </div>
-                <p>Transaction ID: {transaction.id}</p>
+                <footer>
+                <p className="transaction-id">Transaction ID: {transaction.id}</p>
+                <div className="buttons">
+                    <Link to="/logbook">Home</Link>
+                    <button>Save</button>
+                </div>
+                </footer>
             </div>
         }
     </>)
