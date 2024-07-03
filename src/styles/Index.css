@@ -26,7 +26,7 @@ table{
 
 @media (max-width: 900px) {
     table{
-        width: 90%;
+        width: 80%;
         padding: 10px;
         font-size: 14px;
     }

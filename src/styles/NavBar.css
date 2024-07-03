@@ -38,6 +38,8 @@ nav{
 
 @media (max-width: 900px) {
     nav{
+        width: 88%;
+        margin: auto;
         padding: 15px 30px;
         justify-content: space-between;
         h1{
