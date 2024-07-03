@@ -39,8 +39,14 @@ nav{
 @media (max-width: 900px) {
     nav{
         padding: 15px 30px;
+        justify-content: space-between;
         h1{
-            font-size: 40px;
+            font-size: 28px;
+            img{
+                height: 35px;
+                top: 6px;
+                left: 5px;
+            }
         }
         a{
             font-size: 14px;

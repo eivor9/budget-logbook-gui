@@ -9,6 +9,12 @@ export default function Log({ transaction }) {
     const sale = otherParty === "Customers";
 
     const navigate = useNavigate();
+
+    const dollars = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    });
+
     return (
         <tr onClick={() => navigate(`/logbook/${id}`)}>
           <td>
@@ -24,7 +30,7 @@ export default function Log({ transaction }) {
             {category}
           </td>
           <td style={sale?{color: "green"}:{color: "black"}} class="price">
-            {`${sale ? "+" : ""}$${amountInCents/100}`}
+            {`${sale ? "+" : ""}${dollars.format(amountInCents/100)}`}
           </td>
         </tr>
       );
