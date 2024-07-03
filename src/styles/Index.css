@@ -1,0 +1,25 @@
+table{
+    margin: 30px auto;
+    gap: 10px;
+    width: 1000px;
+    border-spacing: 0;
+    font-size: 16px;
+    th{
+        padding-bottom: 20px;
+    }
+    .price{
+        text-align: right;
+    }
+    th{
+        text-align: left;;
+    }
+    tr:nth-child(even) {
+        background: rgb(243, 236, 228);
+    }
+    tr{
+        cursor: pointer;
+    }
+    td{
+        padding: 10px
+    }
+}
