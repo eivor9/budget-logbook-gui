@@ -9,7 +9,7 @@ export default function NavBar() {
         <nav>
             <div className='background-filter'></div>
             <Link to="/"><h1>The Bear <img src={logo} alt="Bear PNG" /></h1></Link>
-            {currentRoute === "/logbook" ? <Link to="logbook/new">NEW TRANSACTION</Link> : ""}
+            {currentRoute === "/logbook" ? <Link to="logbook/new">NEW TRANSACTION</Link> : null}
         </nav>
     );
 }

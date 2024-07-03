@@ -1,21 +1,20 @@
 .Home{
-    padding: 100px 0 100px;
+    padding: 100px 50px;
     display: flex;
-    margin: auto;
-    width: fit-content;
+    justify-content: center;
     gap: 100px;
     *{
         font-weight: lighter;
     }
     img{
-        height: 750px;
-        border-radius: 30px;
+        max-height: 750px;
+        object-fit: scale-down;
     }
     .details{
         display: flex;
         flex-direction: column;
         margin-top: 100px;
-        width: 510px;
+        max-width: 510px;
         gap: 20px;
         h2{
             font-size: 20px;
@@ -54,7 +53,7 @@
         }
         .icons{
             display: flex;
-            margin: 200px auto 0;
+            margin: 100px auto 0;
             gap: 50px;
             i{
                 font-size: 18px;
@@ -76,3 +75,18 @@
     to {left: 0px;}
 }
 
+@media (max-width: 900px) {
+    .Home{
+        padding-top: 50px;
+        flex-direction: column;
+        margin: auto;
+        width: fit-content;
+        img{
+            width: 100%;
+        }
+        .details{
+            margin-top: 0;
+            margin: auto;
+        }
+    }
+}
