@@ -11,13 +11,20 @@ table{
         text-align: right;
     }
     th{
-        text-align: left;;
+        text-align: left;
+        background: white;
     }
     tr:nth-child(even) {
         background: rgb(243, 236, 228);
     }
     tr{
         cursor: pointer;
+        &:hover{
+            background: grey;
+            td{
+                color: black;
+            }
+        }
     }
     td{
         padding: 10px

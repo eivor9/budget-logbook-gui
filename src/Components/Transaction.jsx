@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-export default function Log({ transaction }) {
+export default function Transaction({ transaction }) {
     const { id, date, description, category, otherParty, amountInCents } = transaction;
     const month = date.substring(5,7);
     const day = date.substring(8);
@@ -29,7 +28,7 @@ export default function Log({ transaction }) {
           <td>
             {category}
           </td>
-          <td style={sale?{color: "green"}:{color: "black"}} class="price">
+          <td style={sale?{color: "green"}:{color: "black"}} className="price">
             {`${sale ? "+" : ""}${dollars.format(amountInCents/100)}`}
           </td>
         </tr>
