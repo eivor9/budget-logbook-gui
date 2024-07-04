@@ -79,7 +79,7 @@ export default function New(){
                     Transaction ID: {transaction.id}
                 </p>
                 <div className="buttons">
-                    <Link to="/logbook">Home</Link>
+                    <Link to="/logbook">Cancel</Link>
                     <button>Save</button>
                 </div>
                 </footer>

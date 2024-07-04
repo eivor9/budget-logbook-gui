@@ -40,6 +40,9 @@ table{
         font-size: 14px;
         tr{
             cursor: pointer;
+            th{
+                font-size: 12px;
+            }
             &:hover{
                 &:nth-child(even){background: rgb(243, 236, 228)};
                 background: white;

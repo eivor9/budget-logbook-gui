@@ -2,8 +2,8 @@
     margin: 50px auto;
     width: 50%;
     max-width: 800px;
-    min-width: 350px;
-    padding: 50px 50px 50px 50px; 
+    min-width: 400px;
+    padding: 50px; 
     box-shadow: 0 0 500px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     display: flex;
@@ -208,5 +208,6 @@
 @media (max-width: 900px) {
     .transaction-details{
         box-shadow: unset;
+        padding: 0;
     }
 }
