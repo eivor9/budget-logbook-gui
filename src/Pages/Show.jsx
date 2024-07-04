@@ -73,7 +73,6 @@ export default function Show() {
         .then((response) => {
           setLoading(false);
           setEditAmount(false);
-          console.log(response);
         })
         .catch((error) => console.error("bad edit form", error));
     };

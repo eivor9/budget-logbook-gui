@@ -21,30 +21,34 @@
         .popup{
             padding-top: 20px;
             background: white;
-            width: 350px;
-            height: 175px;
-            margin: 275px auto;
+            width: 300px;
+            height: 150px;
+            margin: 250px auto;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             border-radius: 20px;
             h2{
-                font-size: 22px;
-                font-weight: lighter;
+                font-size: 20px;
+                font-weight: bold;
                 text-align: center;
+                color: rgba(0, 0, 0, 0.7);
                 p{
-                    padding: 25px;
+                    color: rgba(0, 0, 0, 0.5);
+                    font-weight: lighter;
+                    padding: 20px 25px;
                     font-size: 16px;
                 }
             }
             button{
                 width: 50%;
                 border: none;
-                border-top: 1px solid black;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
                 background: white;
                 cursor: pointer;
                 font-size: 18px;
-                height: 50px;
+                padding-top: 10px;
+                padding-bottom: 10px;;
                 color: rgba(255, 166, 0, 0.75);
                 font-weight: bold;
                 border-bottom-right-radius: 20px;
@@ -53,7 +57,7 @@
                     color: white;
                 }
                 &:first-of-type{
-                    border-right: 1px solid black;
+                    border-right: 1px solid rgba(0, 0, 0, 0.1);
                     border-bottom-left-radius: 20px;
                     color: rgba(0, 0, 0, 0.5);
                     font-weight: lighter;
@@ -127,6 +131,9 @@
             justify-content: space-between;
             border-bottom: 1px solid rgba(0, 0, 0, 0.2);
             padding-bottom: 15px;
+            input::placeholder{
+                font-size: 11px;
+            }
             p{
                 cursor: default;
                 i{

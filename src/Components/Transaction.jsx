@@ -5,7 +5,7 @@ export default function Transaction({ transaction }) {
     const month = date.substring(5,7);
     const day = date.substring(8);
     const year = date.substring(0,4);
-    const sale = otherParty === "Customers";
+    const sale = category === "Customer Sales";
 
     const navigate = useNavigate();
 
