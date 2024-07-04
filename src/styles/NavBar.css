@@ -17,22 +17,26 @@ nav{
     }
     h1{
         font-size: 50px;
-        font-weight: bold;
+        font-weight: normal;
         font-style: italic;
         z-index: 2;
+        color: rgba(0, 0, 0, 0.4);
     }
     img{
-        height: 50px;
+        height: 40px;
         position: relative;
-        top: 10px;
+        top: 5px;
         left: 5px;
     }
     a{
         text-decoration: none;
-        color: black;
+        color: rgba(0, 0, 0, 0.6);
         align-self: center;
         font-size: 16px;
         z-index: 2;
+        span{
+            font-size: 24px;
+        }
     }
 }
 

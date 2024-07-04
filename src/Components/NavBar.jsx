@@ -1,6 +1,6 @@
 import '../styles/NavBar.css';
 import { Link } from 'react-router-dom';
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import { useLocation } from 'react-router-dom';
 
 export default function NavBar() {
@@ -9,7 +9,7 @@ export default function NavBar() {
         <nav>
             <div className='background-filter'></div>
             <Link to="/"><h1>The Bear <img src={logo} alt="Bear PNG" /></h1></Link>
-            {currentRoute === "/logbook" ? <Link to="logbook/new">NEW TRANSACTION</Link> : null}
+            {currentRoute === "/logbook" ? <Link to="logbook/new"><span>+</span> NEW TRANSACTION</Link> : null}
         </nav>
     );
 }
