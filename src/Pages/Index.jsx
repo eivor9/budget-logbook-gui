@@ -38,13 +38,8 @@ export default function Index(){
         }
     }
 
-    const dollars = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    });
-
     return (<>
-        {loading ? <Loading/> : 
+        {loading ? <Loading loading="loading"/> :
             <table>
                 <thead>
                 <tr>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import Loading from "../Components/Loading ";
 import "../styles/Show.css";
 import logo from "../assets/logo.svg";
@@ -8,6 +8,8 @@ const API = import.meta.env.VITE_API;
 
 export default function Show() {
     const categories = ["Food and Beverage Purchases", "Facilities and Overheads", "Customer Sales", "Payroll", "Other"];
+    const [cancelEdit, setCancelEdit] = useState(false);
+    const [changesMade, setChangesMade] = useState(false);
     const [editAmount, setEditAmount] = useState(false);
     const [confirmDelete, setConfirmDelete] = useState(false);
     const [transaction, setTransaction] = useState({
@@ -34,12 +36,14 @@ export default function Show() {
             responseJSON.amountInCents = Number(responseJSON.amountInCents)
             setTransaction(responseJSON);
             setLoading(false);
+            setEditAmount(false);
+            setChangesMade(false);
         })
         .catch((error) => {
             console.error(error);
             navigate("/error");
         });
-    }, []);
+    }, [cancelEdit]);
 
     // Be able to delete a color. Return to index view.
     const handleDelete = () => {
@@ -55,6 +59,7 @@ export default function Show() {
     });
 
     const handleTextChange = (event) => {
+        setChangesMade(true);
         setTransaction({ ...transaction, [event.target.id]: event.target.value });
     };
 
@@ -70,8 +75,9 @@ export default function Show() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(transaction)
         })
-        .then((response) => {
+        .then(() => {
           setLoading(false);
+          setCancelEdit(false);
           setEditAmount(false);
         })
         .catch((error) => console.error("bad edit form", error));
@@ -83,7 +89,7 @@ export default function Show() {
     };
 
     return (<>
-        {loading ? <Loading/> : 
+        {loading ? <Loading loading="updating"/> : 
             <form onSubmit={handleSubmit} className="transaction-details">
                 <header>
                     <h2>Transaction Details</h2>
@@ -119,21 +125,21 @@ export default function Show() {
                         </select>
                     </div>
                     <div className="extra">
+                        <label htmlFor="otherParty">Other Party</label>
+                        <input className="line-it-up" required placeholder="e.g., Farmer's Market, Geico" onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
+                    </div>
+                    <div className="extra">
                         {editAmount ? <>
                             <label htmlFor="amountInCents">Amount (in cents)</label>
                             <p>
                                 <i onClick={() => setEditAmount(false)} className="fa-regular fa-circle-xmark"></i>
-                                <input required min="0" onChange={handleNumberChange} id="amountInCents" value={transaction.amountInCents} type="number" />
+                                <input className="line-it-up" required min="0" onChange={handleNumberChange} id="amountInCents" value={transaction.amountInCents} type="number" />
                             </p>
                         </>
                         :<>
                             <p>Amount</p>
-                            <p style={{cursor:"pointer"}} onClick={() => setEditAmount(true)}>{dollars.format(transaction.amountInCents/100)}</p>
+                            <p className="line-it-up" style={{cursor:"pointer"}} onClick={() => setEditAmount(true)}>{dollars.format(transaction.amountInCents/100)}</p>
                         </>}
-                    </div>
-                    <div className="extra">
-                        <label htmlFor="otherParty">Other Party</label>
-                        <input required placeholder="e.g., Farmer's Market, Insurance Company" onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
                     </div>
                 </div>
                 <footer>
@@ -142,8 +148,13 @@ export default function Show() {
                     Transaction ID: {transaction.id}
                 </p>
                 <div className="buttons">
-                    <Link to="/logbook">Home</Link>
-                    <button>Save</button>
+                    {changesMade ? <>
+                        <Link onClick={() => setCancelEdit(!cancelEdit)}>Cancel</Link>
+                        <button>Save</button>
+                    </>:<>
+                        <Link to="/logbook">Home</Link>
+                        <div style={{margin:"8px"}}></div>
+                    </>}
                 </div>
                 </footer>
             </form>

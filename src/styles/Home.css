@@ -11,6 +11,7 @@
         object-fit: scale-down;
     }
     .details{
+        cursor: default;
         display: flex;
         flex-direction: column;
         margin-top: 100px;
@@ -24,18 +25,20 @@
             line-height: 25px;
         }
         a{
-            border: 1px solid black;
+            border: none;
             width: fit-content;
             padding: 15px 20px;
             border-radius: 30px;
-            color: black;
+            color: rgba(0, 0, 0, 0.5);
             text-decoration: none;
             margin: 30px auto;
             position: relative;
             overflow: hidden;
+            box-shadow: inset 0 0 10px rgb(192, 185, 177);
+            font-weight: normal;
             .background{
                 border-radius: 30px;
-                background: black;
+                background: rgba(243, 236, 228, 0.7);
                 position: absolute;
                 height: 100%;
                 width: 105%;
@@ -44,10 +47,11 @@
                 z-index: -1;
             }
             &:hover{
-                color: white;
+                color: rgba(0, 0, 0, 0.6);
+                box-shadow: none;
                 .background{
                     animation: come-in 0.15s ease-out;
-                    left: 1px;
+                    left: 0px;
                 }
             }
         }

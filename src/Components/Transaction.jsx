@@ -23,7 +23,7 @@ export default function Transaction({ transaction }) {
             {description.substring(0, 45)}{description.length > 44 ? "..." : null}
           </td>
           <td>
-            {sale ? "The Bear" : otherParty.substring(0, 25)}{otherParty.length > 24 ? "..." : null}
+            {sale ? "Saga" : otherParty.substring(0, 25)}{otherParty.length > 24 ? "..." : null}
           </td>
           <td>
             {category}

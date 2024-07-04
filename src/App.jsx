@@ -22,7 +22,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/loading" element={<Loading />} />
+          <Route path="/hypnotize-me" element={<Loading />} />
           <Route path="/logbook" element={<Index />} />
           <Route path="/logbook/:id" element={<Show />} />
           <Route path="/logbook/new" element={<New />} />

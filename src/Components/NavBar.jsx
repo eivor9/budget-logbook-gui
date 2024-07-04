@@ -8,7 +8,7 @@ export default function NavBar() {
     return (
         <nav>
             <div className='background-filter'></div>
-            <Link to="/"><h1>The Bear <img src={logo} alt="Bear PNG" /></h1></Link>
+            <Link to="/"><h1>Saga <img src={logo} alt="Bear PNG" /></h1></Link>
             {currentRoute === "/logbook" ? <Link to="logbook/new"><span>+</span> NEW TRANSACTION</Link> : null}
         </nav>
     );

@@ -1,7 +1,7 @@
 table{
     margin: 30px auto;
     width: 1000px;
-    border-spacing:0;
+    border-spacing: 0;
     font-size: 16px;
     th{
         padding-bottom: 20px;
@@ -13,6 +13,7 @@ table{
         color: green;
     }
     th{
+        color: rgba(0, 0, 0, 0.7);
         text-align: left;
         background: white;
     }
@@ -21,10 +22,11 @@ table{
     }
     tr{
         cursor: pointer;
+        color: rgba(0, 0, 0, 0.6);
         &:hover{
-            background: rgba(0, 0, 0, 0.5);
-            td, .price{
-                color: white
+            background: rgb(205, 205, 205);
+            .price{
+                color: rgba(0, 0, 0, 0.6);
             }
         }
     }
@@ -35,19 +37,25 @@ table{
 
 @media (max-width: 900px) {
     table{
-        width: 80%;
-        padding: 10px;
-        font-size: 14px;
+        width: 90vw;
+        font-size: 14.5px;
         tr{
             cursor: pointer;
+            td{
+                padding: 15px 6.5px;
+            }
             th{
+                padding-left: 10px;
                 font-size: 12px;
             }
             &:hover{
                 &:nth-child(even){background: rgb(243, 236, 228)};
                 background: white;
-                td, .price{
-                    color: black;
+                td{
+                    color: rgba(0, 0, 0, 0.6);
+                }
+                .price{
+                    color: green;
                 }
             }
         }
