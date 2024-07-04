@@ -70,7 +70,7 @@ export default function New(){
                     </div>
                     <div className="extra">
                         <p>Other Party</p>
-                        <input required placeholder="e.g., Landlord, Insurance Company" onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
+                        <input required placeholder="e.g., Farmer's Market, Insurance Company" onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
                     </div>
                 </div>
                 <footer>

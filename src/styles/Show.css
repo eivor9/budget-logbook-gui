@@ -80,6 +80,9 @@
     header{
         display: flex;
         justify-content: space-between;
+        h2{
+            font-size: 22px;
+        }
         i{
             font-size: 32px;
             color: rgba(0, 0, 0, 0.05);
@@ -98,8 +101,11 @@
         }
     }
     .info{
-        h3{
+        label{
             margin-bottom: 5px;
+            display: block;
+            font-weight: bold;
+            font-size: 16px;
         }
         p{
             display: flex;
@@ -131,6 +137,9 @@
             justify-content: space-between;
             border-bottom: 1px solid rgba(0, 0, 0, 0.2);
             padding-bottom: 15px;
+            input{
+                font-size: 14px;
+            }
             input::placeholder{
                 font-size: 11px;
             }
@@ -139,6 +148,9 @@
                 i{
                     margin-right: 5px;
                     color: rgba(0, 0, 0, 0.5)
+                }
+                &:nth-of-type(2){
+                    font-size: 14px;
                 }
             }
         }

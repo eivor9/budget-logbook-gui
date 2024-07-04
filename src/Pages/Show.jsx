@@ -104,26 +104,26 @@ export default function Show() {
                     :null}
                 </header>
                 <div className="info">
-                    <h3>Date</h3>
-                    <input id="date" onChange={handleTextChange} value={transaction.date} type="date"/>
+                    <label htmlFor="date">Date</label>
+                    <input required id="date" onChange={handleTextChange} value={transaction.date} type="date"/>
                 </div>
                 <div className="info">
-                    <h3>Description</h3>
-                    <textarea id="description" onChange={handleTextChange} value={transaction.description} >{transaction.description}</textarea>
+                    <label htmlFor="description">Description</label>
+                    <textarea required id="description" onChange={handleTextChange} value={transaction.description} >{transaction.description}</textarea>
                 </div>
                 <div className="extras">
                     <div className="extra">
-                        <p>Category</p>
-                        <select onChange={handleTextChange} value={transaction.category} name="category" id="category">
+                        <label htmlFor="category">Category</label>
+                        <select required onChange={handleTextChange} value={transaction.category} name="category" id="category">
                             {categories.map(category => <option key={category} value={category}>{category}</option>)}
                         </select>
                     </div>
                     <div className="extra">
                         {editAmount ? <>
-                            <p>Amount (in cents)</p>
+                            <label htmlFor="amountInCents">Amount (in cents)</label>
                             <p>
                                 <i onClick={() => setEditAmount(false)} className="fa-regular fa-circle-xmark"></i>
-                                <input required onChange={handleNumberChange} id="amountInCents" value={transaction.amountInCents} type="number" />
+                                <input required min="0" onChange={handleNumberChange} id="amountInCents" value={transaction.amountInCents} type="number" />
                             </p>
                         </>
                         :<>
@@ -132,8 +132,8 @@ export default function Show() {
                         </>}
                     </div>
                     <div className="extra">
-                        <p>Other Party</p>
-                        <input required onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
+                        <label htmlFor="otherParty">Other Party</label>
+                        <input required placeholder="e.g., Farmer's Market, Insurance Company" onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
                     </div>
                 </div>
                 <footer>

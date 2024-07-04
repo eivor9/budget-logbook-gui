@@ -20,10 +20,10 @@ export default function Transaction({ transaction }) {
             {`${month}/${day}/${year}`}
           </td>
           <td>
-            {description}
+            {description.substring(0, 45)}{description.length > 44 ? "..." : null}
           </td>
           <td>
-            {sale ? "The Bear" : otherParty}
+            {sale ? "The Bear" : otherParty.substring(0, 25)}{otherParty.length > 24 ? "..." : null}
           </td>
           <td>
             {category}
