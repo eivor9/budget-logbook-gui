@@ -9,6 +9,7 @@ const API = import.meta.env.VITE_API;
 
 export default function Show() {
     const [editAmount, setEditAmount] = useState(false);
+    const [confirmDelete, setConfirmDelete] = useState(false);
     const [transaction, setTransaction] = useState({});
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -34,10 +35,11 @@ export default function Show() {
 
     // Be able to delete a color. Return to index view.
     const handleDelete = () => {
-    fetch(`${API}/logs/${id}`, { method: "DELETE" })
-    .then(() => {navigate("/logbook");})
-    .catch((error) => console.error(error));
-    };
+        console.log()
+        fetch(`${API}/logbook/${id}`, { method: "DELETE" })
+        .then(() => {navigate("/logbook");})
+        .catch((error) => console.error(error));
+    }
 
     const dollars = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -49,7 +51,21 @@ export default function Show() {
             <div className="transaction-details">
                 <header>
                     <h2>Transaction Details</h2>
-                    <i className="fa-regular fa-trash-can"></i>
+                    <i onClick={() => setConfirmDelete(true)} className="fa-regular fa-trash-can"></i>
+                    {confirmDelete ? 
+                        <div className="greyed-out">
+                            <div className="popup">
+                                <h2>
+                                    Confirm Delete
+                                    <p>Are you sure you want to delete this transaction?</p>
+                                </h2>
+                                <div>
+                                    <button onClick={() => handleDelete()}>Yes</button>
+                                    <button onClick={() => setConfirmDelete(false)}>Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    :null}
                 </header>
                 <div className="info">
                     <h3>Date</h3>
