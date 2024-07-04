@@ -2,15 +2,22 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Loading from "../Components/Loading ";
 import "../styles/Show.css";
-import Select from "../Components/Select";
 import logo from "../assets/logo.svg";
 
 const API = import.meta.env.VITE_API;
 
 export default function Show() {
+    const categories = ["Food and Beverage Purchases", "Facilities and Overheads", "Customer Sales", "Payroll", "Other"];
     const [editAmount, setEditAmount] = useState(false);
     const [confirmDelete, setConfirmDelete] = useState(false);
-    const [transaction, setTransaction] = useState({});
+    const [transaction, setTransaction] = useState({
+        id: "",
+        date: "",
+        description: "",
+        category: "",
+        otherParty: "",
+        amountInCents: 0
+    });
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const { id } = useParams();
@@ -24,6 +31,7 @@ export default function Show() {
             return response.json();
         })
         .then((responseJSON) => {
+            responseJSON.amountInCents = Number(responseJSON.amountInCents)
             setTransaction(responseJSON);
             setLoading(false);
         })
@@ -46,9 +54,38 @@ export default function Show() {
         currency: 'USD'
     });
 
+    const handleTextChange = (event) => {
+        setTransaction({ ...transaction, [event.target.id]: event.target.value });
+    };
+
+    const handleNumberChange = (event) => {
+        setTransaction({ ...transaction, [event.target.id]: Number(event.target.value)});
+    }
+
+    const updateTransaction = () => {
+        setLoading(true);
+
+        fetch(`${API}/logbook/${id}`, {
+          method: "PUT",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(transaction)
+        })
+        .then((response) => {
+          setLoading(false);
+          setEditAmount(false);
+          console.log(response);
+        })
+        .catch((error) => console.error("bad edit form", error));
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        updateTransaction();
+    };
+
     return (<>
         {loading ? <Loading/> : 
-            <div className="transaction-details">
+            <form onSubmit={handleSubmit} className="transaction-details">
                 <header>
                     <h2>Transaction Details</h2>
                     <i onClick={() => setConfirmDelete(true)} className="fa-regular fa-trash-can"></i>
@@ -69,23 +106,25 @@ export default function Show() {
                 </header>
                 <div className="info">
                     <h3>Date</h3>
-                    <input value={transaction.date} type="date"/>
+                    <input id="date" onChange={handleTextChange} value={transaction.date} type="date"/>
                 </div>
                 <div className="info">
                     <h3>Description</h3>
-                    <textarea value={transaction.description} >{transaction.description}</textarea>
+                    <textarea id="description" onChange={handleTextChange} value={transaction.description} >{transaction.description}</textarea>
                 </div>
                 <div className="extras">
                     <div className="extra">
                         <p>Category</p>
-                        <Select defaultValue={transaction.category}/>
+                        <select onChange={handleTextChange} value={transaction.category} name="category" id="category">
+                            {categories.map(category => <option key={category} value={category}>{category}</option>)}
+                        </select>
                     </div>
                     <div className="extra">
                         {editAmount ? <>
                             <p>Amount (in cents)</p>
                             <p>
                                 <i onClick={() => setEditAmount(false)} className="fa-regular fa-circle-xmark"></i>
-                                <input value={transaction.amountInCents} type="number" />
+                                <input required onChange={handleNumberChange} id="amountInCents" value={transaction.amountInCents} type="number" />
                             </p>
                         </>
                         :<>
@@ -95,12 +134,12 @@ export default function Show() {
                     </div>
                     <div className="extra">
                         <p>Other Party</p>
-                        <input value={transaction.otherParty} type="text" />
+                        <input required onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
                     </div>
                 </div>
                 <footer>
                 <p className="transaction-id">
-                    <div><img src={logo} alt="The Bear Logo"/></div>
+                    <img src={logo} alt="The Bear Logo"/>
                     Transaction ID: {transaction.id}
                 </p>
                 <div className="buttons">
@@ -108,7 +147,7 @@ export default function Show() {
                     <button>Save</button>
                 </div>
                 </footer>
-            </div>
+            </form>
         }
     </>)
 }
