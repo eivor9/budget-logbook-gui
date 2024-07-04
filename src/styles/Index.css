@@ -38,5 +38,15 @@ table{
         width: 80%;
         padding: 10px;
         font-size: 14px;
+        tr{
+            cursor: pointer;
+            &:hover{
+                &:nth-child(even){background: rgb(243, 236, 228)};
+                background: white;
+                td, .price{
+                    color: black;
+                }
+            }
+        }
     }
 }
