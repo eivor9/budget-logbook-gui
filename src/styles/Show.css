@@ -191,6 +191,8 @@
                 text-decoration: none;
                 color: rgba(0, 0, 0, 0.7);
                 padding: 10px 15px;
+                position: relative;
+                left: 10px;
                 border-radius: 30px;
                 &:hover{
                     background: rgba(0, 0, 0, 0.05);

@@ -140,7 +140,7 @@ export default function Show() {
                         </>
                         :<>
                             <p>Amount</p>
-                            <p className="line-it-up" style={{cursor:"pointer"}} onClick={() => setEditAmount(true)}>{dollars.format(transaction.amountInCents/100)}</p>
+                            <p style={{cursor:"pointer"}} onClick={() => setEditAmount(true)}>{dollars.format(transaction.amountInCents/100)}</p>
                         </>}
                     </div>
                 </div>
@@ -155,7 +155,6 @@ export default function Show() {
                         <button>Save</button>
                     </>:<>
                         <Link to="/logbook">Home</Link>
-                        <div style={{margin:"8px"}}></div>
                     </>}
                 </div>
                 </footer>
