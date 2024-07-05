@@ -63,14 +63,14 @@ export default function New(){
                         </select>
                     </div>
                     <div className="extra">
+                        <p>Other Party</p>
+                        <input className="line-it-up" required placeholder="e.g., Farmer's Market, Insurance Company" onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
+                    </div>
+                    <div className="extra">
                         <p>Amount (in cents)</p>
                         <p>
                             <input className="line-it-up" min="0" required onChange={handleNumberChange} id="amountInCents" value={transaction.amountInCents} type="number" />
                         </p>
-                    </div>
-                    <div className="extra">
-                        <p>Other Party</p>
-                        <input className="line-it-up" required placeholder="e.g., Farmer's Market, Insurance Company" onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
                     </div>
                 </div>
                 <footer>
