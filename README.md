@@ -31,7 +31,7 @@ From the home page click the transaction you would like to edit, then click the 
 *Make sure to `Save` your changes.*
 
 ---
-__Dependency:__
+__Dependency API:__
 [Budget Logbook - Server](https://github.com/eivor9/budget-logbook-server)
 
 ---
