@@ -9,7 +9,7 @@ export default function PieChartContainer({totals}) {
                     data={totals}
                     startAngle={270}
                     animate={true}
-                    background={"rgb(243, 236, 228)"}
+                    background={"white"}
                 />
 
                 <div className="legend">

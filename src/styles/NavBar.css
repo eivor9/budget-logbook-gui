@@ -42,16 +42,15 @@ nav{
 
 @media (max-width: 900px) {
     nav{
-        width: 88%;
+        width: 95vw;
         margin: auto;
-        padding: 15px 30px;
-        justify-content: space-between;
+        padding: 15px 10px;
         h1{
-            font-size: 28px;
+            font-size: 40px;
             img{
-                height: 35px;
+                height: 40px;
                 top: 8px;
-                left: 5px;
+                left: 4px;
             }
         }
         a{

@@ -1,5 +1,5 @@
 .Home{
-    padding: 100px 50px 50px;
+    padding: 100px 30px 50px;
     display: flex;
     justify-content: center;
     gap: 100px;
@@ -84,7 +84,7 @@
 
 @media (max-width: 900px) {
     .Home{
-        padding-top: 50px;
+        padding: 12px 20px 60px;
         flex-direction: column;
         margin: auto;
         width: fit-content;
@@ -92,6 +92,7 @@
             width: 100%;
         }
         .details{
+            min-width: 300px;
             margin-top: 0;
             margin: auto;
         }
