@@ -22,7 +22,8 @@ From the home page click the transaction you would like to delete, then click th
 ## Edititng a transaction:
 From the home page click the transaction you would like to edit, click the property you would like to update to start editing, then `Save` your changes.
 
-### Dependencies:
-[Budget Logbook - Server](https://budget-logbook-gui.netlify.app)
+<br>
 
-[Budget Logbook - Server Repository](https://github.com/eivor9/budget-logbook-server)
+---
+__Dependency:__
+[Budget Logbook - Server](https://github.com/eivor9/budget-logbook-server)
