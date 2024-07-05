@@ -1,11 +1,20 @@
 import { useState, useEffect } from "react";
 import Transaction from "../Components/Transaction";
 import Loading from "../Components/Loading ";
+import PieChartContainer from "../Components/PieChartContainer";
 import "../styles/Index.css";
 
 const API = import.meta.env.VITE_API;
 
 export default function Index(){
+    const [totals, setTotals] = useState([
+        {title: "Food and Beverage Purchases", value: 0, color: "transparent"},
+        {title: "Facilities and Overheads", value: 0, color: "transparent"},
+        {title: "Customer Sales", value: 0, color: "transparent"},
+        {titl: "Payroll", value: 0, color: "transparent"},
+        {title: "Other", value: 0, color: "transparent"}
+    ]);
+    const pieColors = ["#F4B886", "#CBE896", "#A18276", "#FCDFA6", "#AAC0AA"];
     const [transactions, setTransactions] = useState([]);
     const [sortMethod, setSortMethod] = useState("");
     const [ascDesc, setAscDesc] = useState(false);
@@ -21,25 +30,68 @@ export default function Index(){
         .then((responseJSON) => {
             setLoading(false); 
             setTransactions(responseJSON);
+            const categories = calculateCategories(responseJSON);
+            setTotals(categories);
         })
         .catch((error) => console.error(error));
     }, []);
+
+    function calculateCategories (a) {
+        let total = 0;
+        const totals = {};
+        for (const transaction of a){
+            total += Number(transaction.amountInCents);
+
+            if (!totals[transaction.category])
+                totals[transaction.category] = 0;
+            totals[transaction.category] += Number(transaction.amountInCents);
+        }
+
+        let result = [];
+        let i = 0;
+        for (const key in totals){
+            result.push({
+                title: key,
+                value: (totals[key]/total) * 100,
+                color: pieColors[i]
+            })
+            i++;
+        }
+        result = result.sort((x, y) => y.value - x.value);
+        return result;
+    }
 
     function sortTransactions(method){
         if (method === sortMethod){
             setTransactions(transactions.reverse());
             setAscDesc(!ascDesc);
         } else {
-            setSortMethod(method);
-            setTransactions(transactions.sort((x, y) => {
-                if (x[method] < y[method]) return -1;
-                else if (x[method] > y[method]) return 1;
-            }))
+            if(method === "amountInCents"){
+                setSortMethod(method);
+                setTransactions(transactions.sort((x, y) => {
+                    if (x[method] < y[method]) return -1;
+                    else if (x[method] > y[method]) return 1;
+                }))
+            }else{
+                setSortMethod(method);
+                setTransactions(transactions.sort((x, y) => {
+                    let a = x[method].toLowerCase();
+                    let b = y[method].toLowerCase();
+                    if (x.category === "Customer Sales" && method === "otherParty")
+                        a = "saga"
+                    if (y.category === "Customer Sales" && method === "otherParty")
+                        b = "saga"
+                    if (a < b) return -1;
+                    else if (a > b) return 1;
+                }))
+            }
         }
     }
 
     return (<>
-        {loading ? <Loading loading="loading"/> :
+        {loading ? <Loading loading="loading"/> 
+        :<div className="Index">
+            <PieChartContainer totals={totals}/>
             <table>
                 <thead>
                 <tr>
@@ -51,11 +103,10 @@ export default function Index(){
                 </tr>
                 </thead>
                 <tbody>
-                {transactions.map((transaction) => {
-                    return <Transaction key={transaction.id} transaction={transaction}/>;
-                })}
+                    {transactions.map((transaction) => <Transaction key={transaction.id} transaction={transaction}/>)}
                 </tbody>
             </table>
+        </div>
     }
     </>)
 }

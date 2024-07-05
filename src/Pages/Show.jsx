@@ -64,6 +64,7 @@ export default function Show() {
     };
 
     const handleNumberChange = (event) => {
+        setChangesMade(true);
         setTransaction({ ...transaction, [event.target.id]: Number(event.target.value)});
     }
 
@@ -79,6 +80,7 @@ export default function Show() {
           setLoading(false);
           setCancelEdit(false);
           setEditAmount(false);
+          setChangesMade(false);
         })
         .catch((error) => console.error("bad edit form", error));
     };

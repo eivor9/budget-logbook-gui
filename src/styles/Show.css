@@ -29,6 +29,7 @@
             justify-content: space-between;
             border-radius: 20px;
             h2{
+                cursor: default;
                 font-size: 20px;
                 font-weight: bold;
                 text-align: center;
@@ -77,6 +78,7 @@
         }
     }
     header{
+        cursor: default;
         display: flex;
         justify-content: space-between;
         h2{
@@ -159,7 +161,7 @@
         }
     }
     .transaction-id{
-        color: rgba(0, 0, 0, 0.5);
+        color: rgb(113, 107, 98);;
         font-size: 10px;
     }
     footer{
@@ -216,6 +218,5 @@
     .transaction-details{
         box-shadow: unset;
         padding: 0;
-        
     }
 }

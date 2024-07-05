@@ -1,6 +1,11 @@
+.Index{
+    display: flex;
+    margin: 0 75px;
+    justify-content: space-between;
+}
 table{
-    margin: 30px auto;
-    width: 1000px;
+    margin: 30px 0;
+    width: 65%;
     border-spacing: 0;
     font-size: 16px;
     th{
@@ -36,7 +41,12 @@ table{
 }
 
 @media (max-width: 900px) {
+    .Index {
+        margin: 0;
+        flex-direction: column;
+    }
     table{
+        margin: auto;
         width: 90vw;
         font-size: 14.5px;
         tr{
@@ -61,3 +71,4 @@ table{
         }
     }
 }
+
