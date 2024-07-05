@@ -6,15 +6,15 @@ This app is designed to allow users to document a record of their business' fina
 
 Noteworthy features:
 
-- Adding and removing transactions from a logbook
-- Editing transactions in a logbook
-- Viewing the logbook
+- Adding and removing transactions from your logbook
+- Editing transactions in your logbook
+- Viewing your logbook
 
-## Viewing the Log Book:
-From the welcome page, click the `Financial Log Book` button
+## Viewing your Log Book:
+From the welcome page, click the `Financial Log Book` button.
 
 ## Creating a new transaction:
-From the home page, click the `+ NEW TRANSACTION` button
+From the home page, click the `+ NEW TRANSACTION` button.
 
 ## Deleteing a transaction:
 From the home page click the transaction you would like to delete, then click the `Trash Can` in the top right-hand corner.
