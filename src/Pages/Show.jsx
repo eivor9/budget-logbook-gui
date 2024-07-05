@@ -101,10 +101,10 @@ export default function Show() {
                             <div className="popup">
                                 <h2>
                                     Confirm Delete
-                                    <p>Are you sure you want to delete this transaction?</p>
+                                    <p>Are you sure? Deleting this transaction cannot be undone.</p>
                                 </h2>
                                 <div>
-                                    <button onClick={() => handleDelete()}>Yes</button>
+                                    <button onClick={() => handleDelete()}>Ok</button>
                                     <button onClick={() => setConfirmDelete(false)}>Cancel</button>
                                 </div>
                             </div>
