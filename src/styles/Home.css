@@ -1,5 +1,5 @@
 .Home{
-    padding: 100px 50px;
+    padding: 100px 50px 50px;
     display: flex;
     justify-content: center;
     gap: 100px;
@@ -16,6 +16,7 @@
         flex-direction: column;
         margin-top: 100px;
         max-width: 510px;
+        min-width: 400px;
         gap: 20px;
         h2{
             font-size: 20px;
