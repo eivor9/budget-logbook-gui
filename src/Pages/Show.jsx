@@ -128,14 +128,14 @@ export default function Show() {
                     </div>
                     <div className="extra">
                         <label htmlFor="otherParty">Other Party</label>
-                        <input style={{width: "100px"}} required placeholder="e.g., Farmer's Market, Geico" onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
+                        <input style={{width: "100px", textAlign: "right"}} required placeholder="e.g., Farmer's Market, Geico" onChange={handleTextChange} id="otherParty" value={transaction.otherParty} type="text" />
                     </div>
                     <div className="extra">
                         {editAmount ? <>
                             <label htmlFor="amountInCents">Amount (in cents)</label>
                             <p>
                                 <i onClick={() => setEditAmount(false)} className="fa-regular fa-circle-xmark"></i>
-                                <input className="line-it-up" required min="0" onChange={handleNumberChange} id="amountInCents" value={transaction.amountInCents} type="number" />
+                                <input style={{textAlign: "right"}} required min="0" onChange={handleNumberChange} id="amountInCents" value={transaction.amountInCents} type="number" />
                             </p>
                         </>
                         :<>
