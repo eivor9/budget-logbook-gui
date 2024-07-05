@@ -1,6 +1,6 @@
 ![alt text](./src/assets/accountant.png)
 
-# Budget Log Book (GUI)
+# Budget Logbook - GUI
 
 This app is designed to allow users to document a record of their business' financial transactions. Use it to keep track of cash flow over time. Test it out [here](https://budget-logbook-gui.netlify.app).
 
