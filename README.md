@@ -34,4 +34,5 @@ From the home page click the transaction you would like to edit, then click the 
 __Dependency:__
 [Budget Logbook - Server](https://github.com/eivor9/budget-logbook-server)
 
+---
 [How To Fool a Monkey](https://budget-logbook-gui.netlify.app/hypnotize-me)
