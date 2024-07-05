@@ -1,6 +1,7 @@
 .Index{
     display: flex;
     margin: 0 75px;
+    gap: 75px;
     justify-content: space-between;
 }
 table{
@@ -53,6 +54,10 @@ table{
             cursor: pointer;
             td{
                 padding: 15px 6.5px;
+                &:nth-of-type(5){
+                    position: relative;
+                    left: -20px;
+                }
             }
             th{
                 padding-left: 10px;
@@ -64,7 +69,7 @@ table{
                 td{
                     color: rgba(0, 0, 0, 0.6);
                 }
-                .price{
+                .sale{
                     color: green;
                 }
             }
