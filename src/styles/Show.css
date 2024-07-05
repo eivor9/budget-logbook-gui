@@ -4,7 +4,8 @@
     max-width: 800px;
     min-width: 400px;
     padding: 50px; 
-    box-shadow: 0 0 750px rgb(135, 120, 103);
+    box-shadow: 0 0 500px rgba(194, 174, 153, 0.4);
+    border: 1px solid rgba(113, 107, 98, 0.3);
     border-radius: 50px;
     display: flex;
     flex-direction: column;
