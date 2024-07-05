@@ -1,14 +1,14 @@
 .transaction-details{
     margin: 50px auto;
-    width: 50%;
+    width: 30%;
     max-width: 800px;
     min-width: 400px;
     padding: 50px; 
-    box-shadow: 0 0 500px rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
+    box-shadow: 0 0 750px rgb(135, 120, 103);
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 35px;
     .greyed-out{
         background: rgba(193, 193, 193, 0.851);
         position: absolute;
@@ -23,7 +23,7 @@
             background: rgba(255, 255, 255, 0.95);
             width: 300px;
             height: 150px;
-            margin: 275px auto;
+            margin: 333px auto;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -218,5 +218,11 @@
     .transaction-details{
         box-shadow: unset;
         padding: 0;
+        .greyed-out{
+            .popup{
+                position: relative;
+                left: -7px;
+            }
+        }
     }
 }

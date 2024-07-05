@@ -56,7 +56,7 @@ table{
                 padding: 15px 6.5px;
                 &:nth-of-type(5){
                     position: relative;
-                    left: -20px;
+                    left: -5px;
                 }
             }
             th{
