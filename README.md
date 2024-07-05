@@ -20,7 +20,9 @@ From the home page, click the `+ NEW TRANSACTION` button.
 From the home page click the transaction you would like to delete, then click the `Trash Can` in the top right-hand corner.
 
 ## Edititng a transaction:
-From the home page click the transaction you would like to edit, click the property you would like to update to start editing, then `Save` your changes.
+From the home page click the transaction you would like to edit, then click the property you would like to update.
+
+*Make sure to `Save` your changes.*
 
 <br>
 
