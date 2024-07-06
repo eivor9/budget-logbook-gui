@@ -91,7 +91,10 @@ export default function Index(){
     return (<>
         {loading ? <Loading loading="loading"/> 
         :<div className="Index">
-            <PieChartContainer totals={totals}/>
+            <div className="sticky-container">
+                <PieChartContainer totals={totals}/>
+            </div>
+            
             <table>
                 <thead>
                 <tr>

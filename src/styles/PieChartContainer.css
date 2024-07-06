@@ -1,25 +1,37 @@
 .pie-chart-container{
     cursor: default;
-    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 100px;
     gap: 50px;
-    min-width: 300px;
-    .pie-chart{
-        height: auto;
-        position: sticky;
-        top: 100px;
+    position: sticky;
+    top: 0;
+    .donut{
+        width: 100%;
+        position: relative;
+        .pie-chart{
+            height: auto;
+        }
+        .munchkin{
+            position: absolute;
+            border-radius: 50%;
+            width: 50%;
+            aspect-ratio: 1;
+            background-color: white;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 99;
+        }
     }
     .legend{
-        justify-self: center;
         display: flex;
         flex-direction: column;
         gap: 10px;
-        position: sticky;
-        top: 520px;
         .row{
             display: flex;
             gap: 10px;
@@ -33,14 +45,7 @@
 }
 @media (max-width: 900px) {
     .pie-chart-container{
-        width: 80%;
-        margin: auto;
         margin-bottom: 75px;
-        .pie-chart{
-            position: static; 
-        }
-        .legend{
-            position: static;
-        }
+        position: static;
     }
 }

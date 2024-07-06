@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Loading from "../Components/Loading ";
 import "../styles/Show.css";
 import logo from "../assets/logo.svg";
@@ -47,9 +47,11 @@ export default function Show() {
 
     // Be able to delete a color. Return to index view.
     const handleDelete = () => {
-        console.log()
+        setLoading(true);
         fetch(`${API}/logbook/${id}`, { method: "DELETE" })
-        .then(() => {navigate("/logbook");})
+        .then(() => {
+            navigate("/logbook");
+        })
         .catch((error) => console.error(error));
     }
 
