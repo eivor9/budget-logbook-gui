@@ -148,7 +148,7 @@ export default function Show() {
                 </div>
                 <footer>
                 <p className="transaction-id">
-                    <img src={logo} alt="The Bear Logo"/>
+                    <img src={logo} alt="Bear Logo SVG"/>
                     Transaction ID: {transaction.id}
                 </p>
                 <div className="buttons">

@@ -3,6 +3,7 @@ import Transaction from "../Components/Transaction";
 import Loading from "../Components/Loading ";
 import PieChartContainer from "../Components/PieChartContainer";
 import "../styles/Index.css";
+import logo from "../assets/logo.svg";
 
 const API = import.meta.env.VITE_API;
 
@@ -91,24 +92,31 @@ export default function Index(){
     return (<>
         {loading ? <Loading loading="loading"/> 
         :<div className="Index">
-            <div className="sticky-container">
-                <PieChartContainer totals={totals}/>
-            </div>
+            {transactions.length ? 
+            <>
+                <div className="sticky-container">
+                    <PieChartContainer totals={totals}/>
+                </div>
             
-            <table>
-                <thead>
-                <tr>
-                    <th onClick={() => sortTransactions("date")}>Date</th>
-                    <th onClick={() => sortTransactions("description")}>Description</th>
-                    <th onClick={() => sortTransactions("otherParty")}>Recipient</th>
-                    <th onClick={() => sortTransactions("category")}>Category</th>
-                    <th onClick={() => sortTransactions("amountInCents")}>Amount</th>
-                </tr>
-                </thead>
-                <tbody>
-                    {transactions.map((transaction) => <Transaction key={transaction.id} transaction={transaction}/>)}
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th onClick={() => sortTransactions("date")}>Date</th>
+                            <th onClick={() => sortTransactions("description")}>Description</th>
+                            <th onClick={() => sortTransactions("otherParty")}>Recipient</th>
+                            <th onClick={() => sortTransactions("category")}>Category</th>
+                            <th onClick={() => sortTransactions("amountInCents")}>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {transactions.map((transaction) => <Transaction key={transaction.id} transaction={transaction}/>)}
+                    </tbody>
+                </table>
+            </>: <div className="zero-transactions">
+                <img src={logo} alt="Bear Logo SVG" />
+                <h2>Nothing to see here - yet...</h2>
+                <div className="frosted"></div>
+                </div>}
         </div>
     }
     </>)
