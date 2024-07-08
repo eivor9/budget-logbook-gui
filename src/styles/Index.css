@@ -102,6 +102,9 @@ table{
                 padding-left: 5px;
                 padding-right: 5px;
                 font-size: 12px;
+                &:nth-of-type(5){
+                    padding-right: 10px;
+                    padding-left: 0;
             }
             &:hover{
                 &:nth-child(even){background: rgb(243, 236, 228)};
